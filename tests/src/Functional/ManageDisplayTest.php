@@ -25,8 +25,6 @@ class ManageDisplayTest extends BrowserTestBase {
    */
   protected $type;
 
-  protected $strictConfigSchema = FALSE;
-
   /**
    * {@inheritdoc}
    */
