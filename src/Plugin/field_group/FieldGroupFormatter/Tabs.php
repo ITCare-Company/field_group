@@ -46,7 +46,7 @@ class Tabs extends FieldGroupFormatterBase {
 
     // By default tabs don't have titles but you can override it in the theme.
     if ($this->getLabel()) {
-      $element['#title'] = Html::escape($this->getLabel());
+      $element['#title'] = $this->getLabel();
     }
 
     $element += [
