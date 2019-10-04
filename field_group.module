@@ -182,8 +182,25 @@ function field_group_form_entity_view_display_edit_form_alter(&$form, FormStateI
  * Implements hook_field_info_max_weight().
  */
 function field_group_field_info_max_weight($entity_type, $bundle, $context, $context_mode) {
+  // Prevent recursion.
+  // @see https://www.drupal.org/project/drupal/issues/2966137
+  static $recursion_tracker = [];
+
+  // Track the entity display.
+  $key = $entity_type . ':' . $bundle . ':' . $context . ':' . $context_mode;
+
+  // If entity display check was attempted but did not finish, do not continue.
+  if (isset($recursion_tracker[$key])) {
+    return NULL;
+  }
+
+  // Mark this as an attempt at entity display check.
+  $recursion_tracker[$key] = TRUE;
 
   $groups = field_group_info_groups($entity_type, $bundle, $context, $context_mode);
+
+  // Remove the indicator once the entity display is successfully checked.
+  unset($recursion_tracker[$key]);
 
   $weights = [];
   foreach ($groups as $group) {
