@@ -46,8 +46,7 @@ To submit bug reports and feature suggestions, or to track changes:
 
 REQUIREMENTS
 ------------
-Important for paragraph users: Make sure you apply the following paragraphs
-patch: https://www.drupal.org/project/paragraphs/issues/2907094
+None.
 
 INSTALLATION
 ------------
