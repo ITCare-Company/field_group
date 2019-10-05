@@ -272,6 +272,7 @@ class FieldGroupAddForm extends FormBase {
         'parent_name' => '',
         'weight' => 20,
         'format_type' => $form_state->get('group_formatter'),
+        'region' => 'hidden',
       ];
 
       $new_group->format_settings = $form_state->getValue('format_settings');
