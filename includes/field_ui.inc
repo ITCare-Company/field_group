@@ -64,6 +64,8 @@ function field_group_field_ui_form_params($form, EntityDisplayBase $display) {
   elseif (!empty($ds_info['layout']['id'])) {
     $layout = \Drupal::service('plugin.manager.core.layout')->getDefinition($ds_info['layout']['id']);
     $params->available_regions = $layout->getRegionNames();
+    // Hidden is an available region too, as weird as it may seems.
+    $params->available_regions[] = 'hidden';
     $params->default_region = $layout->getDefaultRegion() ?: 'hidden';
   }
   else {
