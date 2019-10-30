@@ -153,7 +153,7 @@ class FieldGroupAddForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Add a new group'),
       '#options' => $formatter_options,
-      '#empty_option' => $this->t('- Select a group type -'),
+      '#empty_option' => $this->t('- Select a field group type -'),
       '#required' => TRUE,
     ];
 
