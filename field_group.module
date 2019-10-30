@@ -344,7 +344,9 @@ function field_group_form_process(array &$element, FormStateInterface $form_stat
       $element[$group_name]['#parents'] = $parents;
       $group_children_parent_group = implode('][', $parents);
       foreach ($group->children as $child) {
-        $element[$child]['#group'] = $group_children_parent_group;
+        if (!isset($element[$child]['#group'])) {
+          $element[$child]['#group'] = $group_children_parent_group;
+        }
       }
     }
 
