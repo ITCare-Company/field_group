@@ -885,7 +885,7 @@ function field_group_group_save($group, $display = NULL) {
  *
  * @throws \Drupal\Core\Entity\EntityStorageException
  */
-function field_group_group_delete($group) {
+function field_group_delete_field_group($group) {
   if ($group->context == 'form') {
     $display = EntityFormDisplay::load($group->entity_type . '.' . $group->bundle . '.' . $group->mode);
   }
