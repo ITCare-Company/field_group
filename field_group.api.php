@@ -71,7 +71,7 @@ function hook_field_group_pre_render_alter(array &$element, &$group, &$rendering
  *   Group being rendered.
  */
 function hook_field_group_build_pre_render_alter(array &$element) {
-  $element['#fieldgroups']['my_group']['#access'] = FALSE;
+  $element['#fieldgroups']['my_group']['region'] = 'new_region';
 }
 
 /**
