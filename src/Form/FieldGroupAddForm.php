@@ -212,7 +212,7 @@ class FieldGroupAddForm extends FormBase {
     $group->bundle = $this->bundle;
     $group->mode = $this->mode;
 
-    $manager = \Drupal::service('plugin.manager.field_group.formatters');
+    $manager = $this->fieldGroupFormatterPluginManager;
     $plugin = $manager->getInstance([
       'format_type' => $form_state->getValue('group_formatter'),
       'configuration' => [
