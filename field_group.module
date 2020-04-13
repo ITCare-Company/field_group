@@ -4,7 +4,7 @@
  * @file
  * Fieldgroup module.
  *
- * For an overview of all php and javascript hooks, see field_group.api.php.
+ * For an overview of all php and JavaScript hooks, see field_group.api.php.
  *
  */
 
@@ -1128,7 +1128,7 @@ function field_group_field_group_build_pre_render_alter(&$element) {
     field_group_remove_empty_form_groups('form', $element, $groups, $element['#groups'], $element['#entity_type']);
   }
 
-  // Add the default field_group javascript and stylesheet.
+  // Add the default field_group JavaScript and stylesheet.
   $element['#attached']['js'][] = drupal_get_path('module', 'field_group') . '/field_group.js';
 
   // Move additional settings to the last multipage pane if configured that way.
