@@ -245,7 +245,7 @@ function field_group_field_attach_delete_bundle($entity_type, $bundle) {
   // Delete the entity's entry from field_group of all entities.
   // We fetch the field groups first to assign the removal task to ctools.
   if (isset($list[$entity_type], $list[$entity_type][$bundle])) {
-    foreach ($list[$entity_type][$bundle] as $group_mode => $groups) {
+    foreach ($list[$entity_type][$bundle] as $groups) {
       foreach ($groups as $group) {
         ctools_export_crud_delete('field_group', $group);
       }
@@ -1066,7 +1066,8 @@ function field_group_pre_render_tab(&$element, $group, &$form) {
     // Create the fieldgroup element.
     $add['#parents'] = array('additional_settings');
     $add['#group'] = 'additional_settings';
-    $add['#weight'] = -30 + $group->weight; // hardcoded to bring our extra additional vtabs on top.
+    // Hardcoded to bring our extra additional vtabs on top.
+    $add['#weight'] = -30 + $group->weight;
 
     // Check if the additional_settings exist for this type of form.
     if (isset($form['additional_settings']['group']['#groups']['additional_settings'])) {
@@ -1135,8 +1136,6 @@ function field_group_field_group_build_pre_render_alter(&$element) {
   // Note that multipages MUST be in the root of the form.
   foreach (element_children($element) as $name) {
     if (isset($element[$name]['#type']) && $element[$name]['#type'] == 'multipage' && isset($element['additional_settings'])) {
-      $parent_group = $element['#groups'][$name];
-      $move_additional = isset($parent_group->format_settings['instance_settings']['move_additional']) ? $parent_group->format_settings['instance_settings']['move_additional'] : 1;
       $last_pane = NULL;
       foreach (element_children($element[$name], TRUE) as $pane) {
         $last_pane = $pane;
@@ -1621,7 +1620,7 @@ function theme_multipage_pane($variables) {
   // Add a page counter if needed.
   // counter array(0 => t('No'), 1 => t('Format 1 / 10'), 2 => t('The count number only'));
   $page_counter_format = isset($parent_group->format_settings['instance_settings']['page_counter']) ? $parent_group->format_settings['instance_settings']['page_counter'] : 1;
-  $multipage_element['#page_counter_rendered'] = '';
+
   if ($page_counter_format == 1) {
     $output .= t('<span class="multipage-counter">%count / %total</span>', array('%count' => $multipages[$parent_group->group_name], '%total' => count($parent_group->children)));
   }
