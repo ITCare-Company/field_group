@@ -46,9 +46,18 @@ function field_group_update_8301() {
  * Install the 'jquery_ui_accordion' module if it exists.
  */
 function field_group_update_8302() {
-  // Enables the jQuery UI accordion module if it exists.
-  if (\Drupal::service('extension.list.module')->getName('jquery_ui_accordion')) {
-    \Drupal::service('module_installer')->install(['jquery_ui_accordion'], FALSE);
-    return t('The "jquery_ui_accordion" module has been installed.');
+  try {
+    // Enables the jQuery UI accordion module if it exists.
+    if (\Drupal::service('extension.list.module')
+      ->getName('jquery_ui_accordion')) {
+      \Drupal::service('module_installer')
+        ->install(['jquery_ui_accordion'], FALSE);
+      return t('The "jquery_ui_accordion" module has been installed.');
+    }
+  }
+  catch (\Exception $e) {
+    return
+      t('If you want to use the Field Group accordion formatter, you will need to install the <a href=":link" target="_blank">jQuery UI Accordion</a> module.',
+        [':link' => 'https://www.drupal.org/project/jquery_ui_accordion']);
   }
 }
