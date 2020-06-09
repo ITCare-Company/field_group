@@ -275,7 +275,7 @@ function field_group_inline_entity_form_entity_form_alter(&$entity_form, FormSta
   ];
 
   field_group_attach_groups($entity_form, $context);
-  FormatterHelper::formProcess($entity_form);
+  FormatterHelper::formProcess($entity_form, $form_state);
 }
 
 /**
