@@ -279,6 +279,31 @@ function field_group_inline_entity_form_entity_form_alter(&$entity_form, FormSta
 }
 
 /**
+ * Implements hook_form_media_library_add_form_upload_alter().
+ */
+function field_group_form_media_library_add_form_upload_alter(&$form, FormStateInterface $form_state) {
+
+  // Attach the fieldgroups to the media entity form in Media Library widget.
+  $storage = $form_state->getStorage();
+  if (!empty($storage['media'])) {
+    foreach ($storage['media'] as $delta => $media) {
+      $context = [
+        'entity_type' => $storage['media'][$delta]->getEntityTypeId(),
+        'bundle' => $storage['media'][$delta]->bundle(),
+        'entity' => $storage['media'][$delta],
+        'context' => 'form',
+        'display_context' => 'form',
+        'mode' => 'media_library',
+      ];
+
+      field_group_attach_groups($form['media'][$delta]['fields'], $context);
+      $form['media'][$delta]['fields']['#process'][] = [FormatterHelper::class, 'formProcess'];
+    }
+  }
+
+}
+
+/**
  * Implements hook_form_layout_builder_update_block_alter().
  */
 function field_group_form_layout_builder_update_block_alter(&$form, FormStateInterface $form_state) {
