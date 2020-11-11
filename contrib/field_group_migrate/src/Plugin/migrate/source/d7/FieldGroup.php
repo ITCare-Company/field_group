@@ -81,6 +81,10 @@ class FieldGroup extends DrupalSqlBase {
         $settings['format_type'] = 'tab';
         break;
 
+      case 'html-element':
+        $settings['format_type'] = 'html_element';
+        break;
+
     }
     $row->setSourceProperty('settings', $settings);
     return parent::prepareRow($row);
