@@ -628,7 +628,7 @@ function field_group_fields_nest(&$element, &$vars = NULL, $context = NULL) {
       $key = field_group_get_content_element_key($context);
       if (!isset($element['#fieldgroups'][$child_name]) && isset($vars[$key][$child_name])) {
 
-        // ECK marks his defaut properties as printed, while it is not printed yet.
+        // ECK marks his default properties as printed, while it is not printed yet.
         if ($context === 'eck_entity' && !empty($vars[$key][$child_name]['#printed'])) {
           $vars[$key][$child_name]['#printed'] = FALSE;
         }
@@ -720,7 +720,7 @@ function field_group_field_layout_fields_nest(array &$element, &$vars = NULL, $c
     $key = field_group_get_content_element_key($context);
     if (!isset($element['#fieldgroups'][$child_name]) && isset($vars[$key]['_field_layout'][$region][$child_name])) {
 
-      // ECK marks his defaut properties as printed, while it is not printed yet.
+      // ECK marks his default properties as printed, while it is not printed yet.
       if ($context === 'eck_entity' && !empty($vars[$key]['_field_layout'][$region][$child_name]['#printed'])) {
         $vars[$key]['_field_layout'][$region][$child_name]['#printed'] = FALSE;
       }
