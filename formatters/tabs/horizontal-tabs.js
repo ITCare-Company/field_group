@@ -51,12 +51,14 @@
         $details.each(function (i) {
           var $this = $(this);
           var summaryElement = $this.find('> summary .details-title');
-
-          if (!summaryElement.length) {
+          if (summaryElement.length) {
             summaryElement = $this.find('> summary');
+            var summaryText = summaryElement.first().find('.details-title').find('> span:last-child').text().trim();
           }
-
-          var summaryText = summaryElement.clone().children().remove().end().text().trim() || summaryElement.find('> span:first-child').text().trim();
+          else {
+            summaryElement = $this.find('> summary');
+            var summaryText = summaryElement.clone().children().remove().end().text().trim() || summaryElement.find('> span:first-child').text().trim();
+          }
           var horizontal_tab = new Drupal.horizontalTab({
             title: summaryText,
             details: $this
