@@ -64,6 +64,7 @@
               details: $this
             });
             horizontal_tab.item.addClass('horizontal-tab-button-' + i);
+            horizontal_tab.item.attr('data-horizontalTabButton', i);
             tab_list.append(horizontal_tab.item);
             $this
               .removeClass('collapsed')
