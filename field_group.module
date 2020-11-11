@@ -523,8 +523,10 @@ function field_group_attach_groups(&$element, $context) {
   // Create a lookup array.
   $group_children = [];
   foreach ($element['#fieldgroups'] as $group_name => $group) {
-    foreach ($group->children as $child) {
-      $group_children[$child] = $group_name;
+    if (!empty($group->children)) {
+      foreach ($group->children as $child) {
+        $group_children[$child] = $group_name;
+      }
     }
   }
   $element['#group_children'] = $group_children;
