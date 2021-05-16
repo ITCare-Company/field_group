@@ -112,6 +112,9 @@ field_group.field_group_formatter_plugin.tabs:
     direction:
       type: string
       label: 'Direction of the tabs'
+    width_breakpoint:
+      type: integer
+      label: 'Disable Tabs widget if the window width is equal or smaller'
 
 field_group.field_group_formatter_plugin.base:
   type: mapping
