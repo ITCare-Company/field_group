@@ -76,6 +76,10 @@ function field_group_theme_registry_alter(&$theme_registry) {
     $theme_registry['eck_entity']['preprocess functions'][] = 'field_group_build_entity_groups';
   }
 
+  // External entities use the external_entity as theme function.
+  if (isset($theme_registry['external_entity'])) {
+    $theme_registry['external_entity']['preprocess functions'][] = 'field_group_build_entity_groups';
+  }
 }
 
 /**
@@ -579,7 +583,7 @@ function field_group_build_entity_groups(array &$vars, $context = 'view') {
     $element = &$vars['content'];
   }
   else {
-    if ($context === 'eck_entity') {
+    if ($context === 'eck_entity' || $context === 'external_entity') {
       $element = &$vars['entity'];
     }
     else {
