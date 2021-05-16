@@ -126,6 +126,9 @@ field_group.field_group_formatter_plugin.base:
     classes:
       type: string
       label:  'Classes of the fieldgroup'
+    show_empty_fields:
+      type: boolean
+      label: 'Show Empty Fields'
     id:
       type: string
       label: 'Html id of the fieldgroup'
