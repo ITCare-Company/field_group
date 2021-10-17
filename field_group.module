@@ -34,6 +34,20 @@ function field_group_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_module_implements_alter().
+ */
+function field_group_module_implements_alter(&$implementations, $hook) {
+  switch ($hook) {
+    // Move our hook_form_alter() implementation to the end of the list.
+    case 'form_alter':
+      $group = $implementations['field_group'];
+      unset($implementations['field_group']);
+      $implementations['field_group'] = $group;
+      break;
+  }
+}
+
+/**
  * Implements hook_library_info_alter().
  */
 function field_group_library_info_alter(&$libraries, $extension) {
@@ -1071,6 +1085,22 @@ function field_group_remove_empty_form_groups(&$element, $groups, $entity_type) 
   foreach (array_keys($empty_groups) as $group_name) {
     $element[$group_name]['#access'] = FALSE;
   }
+
+  // Check access on translations.
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  $is_add_translation_route = $route_name === 'entity.node.content_translation_add';
+  if ($is_add_translation_route) {
+    foreach ($groups as $group_name) {
+      if ($element[$group_name]['#type'] == 'details' && isset($element[$group_name]['#group'])) {
+        if (isset($element['advanced']) && isset($element['advanced']['#access']) && !$element['advanced']['#access']) {
+          $element['advanced']['#access'] = TRUE;
+          // Show meta element as well.
+          $element['meta']['#access'] = TRUE;
+        }
+      }
+    }
+  }
+
 }
 
 /**
