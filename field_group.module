@@ -273,6 +273,7 @@ function field_group_form_alter(array &$form, FormStateInterface $form_state) {
 
       field_group_attach_groups($form, $context);
       $form['#process'][] = [FormatterHelper::class, 'formProcess'];
+      $form['#pre_render'][] = [FormatterHelper::class, 'formGroupPreRender'];
     }
   }
 
@@ -414,12 +415,13 @@ function field_group_conditional_fields_children($entity_type, $bundle_name) {
  * @param array $element
  *   Form that is being rendered.
  *
- * @deprecated Use field_group_form_process instead.
+ * @deprecated Field group used to use pre_render, it now uses #process.
  *
  * @return array
  */
 function field_group_form_pre_render(array $element) {
-  return field_group_form_process($element);
+  $element = field_group_form_process($element);
+  return FormatterHelper::formGroupPreRender($element);
 }
 
 /**
