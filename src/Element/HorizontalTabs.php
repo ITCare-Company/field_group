@@ -45,7 +45,7 @@ class HorizontalTabs extends RenderElement {
    * @return array
    *   The modified element with all group members.
    */
-  public static function preRenderGroup($element) {
+  public static function preRenderGroup(array $element) {
     // The element may be rendered outside of a Form API context.
     if (!isset($element['#parents']) || !isset($element['#groups'])) {
       return $element;
@@ -65,8 +65,8 @@ class HorizontalTabs extends RenderElement {
       elseif (!empty($element['#group_details'])) {
         // Intentionally empty to clarify the flow; we simply return $element.
       }
-      // Otherwise, this element belongs to a group and the group exists, so we do
-      // not render it.
+      // Otherwise, this element belongs to a group and the group exists, so we
+      // do not render it.
       elseif (Element::children($element['#groups'][$group])) {
         $element['#printed'] = TRUE;
       }
@@ -164,7 +164,7 @@ class HorizontalTabs extends RenderElement {
    * @return array
    *   The processed element.
    */
-  public static function processGroup(&$element, FormStateInterface $form_state, &$complete_form) {
+  public static function processGroup(array &$element, FormStateInterface $form_state, array &$complete_form) {
 
     $groups = &$form_state->getGroups();
     $element['#groups'] = &$groups;
