@@ -119,7 +119,6 @@ class MigrateUiFieldGroupTest extends MigrateUpgradeTestBase {
     $session->pageTextContains('Provide credentials for the database of the Drupal site you want to upgrade.');
 
     $driver = $connection_options['driver'];
-    $connection_options['prefix'] = $connection_options['prefix']['default'];
 
     // Use the driver connection form to get the correct options out of the
     // database settings. This supports all of the databases we test against.
