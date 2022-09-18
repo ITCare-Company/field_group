@@ -1291,7 +1291,7 @@ function field_group_field_group_format_summary($group) {
 
       if (isset($group_form['instance_settings'], $group_form['instance_settings'][$key]['#options'])) {
         if (is_array($value)) {
-          $value = implode(array_filter($value), ', ');
+          $value = implode(', ', array_filter($value));
         }
         else {
           $value = $group_form['instance_settings'][$key]['#options'][$value];
