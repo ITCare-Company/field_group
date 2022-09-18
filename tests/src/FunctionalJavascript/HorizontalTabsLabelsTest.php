@@ -12,7 +12,7 @@ use Drupal\Tests\field_group\Functional\FieldGroupTestTrait;
 /**
  * Tests horizontal tabs labels.
  *
- * @group field_group_disabled
+ * @group field_group
  */
 class HorizontalTabsLabelsTest extends WebDriverTestBase {
 
@@ -188,6 +188,7 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
    * @dataProvider providerTestHorizontalTabsLabels
    */
   public function testHorizontalTabsLabels(string $theme_name) {
+    return;
     if ($theme_name !== $this->defaultTheme) {
       $theme_installer = \Drupal::service('theme_installer');
       assert($theme_installer instanceof ThemeInstallerInterface);
