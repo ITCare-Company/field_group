@@ -5,3 +5,6 @@ package : Fields
 core_version_requirement: ^9.2 || ^10
 dependencies:
   - drupal:field
+test_dependencies:
+  - classy:classy
+  - stable:stable
