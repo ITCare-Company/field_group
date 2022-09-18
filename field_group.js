@@ -77,7 +77,7 @@ Drupal.FieldGroup.Effects.processAccordion = {
           if ($('.error', $(this)).length) {
             // Save first error item, for focussing it.
             if (!$firstErrorItem) {
-              $firstErrorItem = $(this).parent().accordion("activate" , i);
+              $firstErrorItem = $(this).parent().accordion("option", "active", i);
             }
             $('h3.ui-accordion-header').eq(i).addClass('error');
           }
