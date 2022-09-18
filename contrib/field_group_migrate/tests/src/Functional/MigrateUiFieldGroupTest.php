@@ -36,7 +36,7 @@ class MigrateUiFieldGroupTest extends MigrateUpgradeTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $extension_list_module = \Drupal::service('extension.list.module');
