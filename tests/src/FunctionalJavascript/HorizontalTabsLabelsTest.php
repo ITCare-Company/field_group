@@ -12,7 +12,7 @@ use Drupal\Tests\field_group\Functional\FieldGroupTestTrait;
 /**
  * Tests horizontal tabs labels.
  *
- * @group field_group
+ * @group field_group_disabled
  */
 class HorizontalTabsLabelsTest extends WebDriverTestBase {
 
