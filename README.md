@@ -1,5 +1,4 @@
-CONTENTS OF THIS FILE
----------------------
+# FIELD GROUP
 
  * Introduction
  * Requirements
@@ -7,8 +6,8 @@ CONTENTS OF THIS FILE
  * Configuration
  * Maintainers
 
-INTRODUCTION
-------------
+## Introduction
+
 History:
   Field_group was originally written when drupal 7 was released. For drupal 6,
   the module is located in the CCK module (http://drupal.org/project/cck).
@@ -44,27 +43,27 @@ Available group types:
 To submit bug reports and feature suggestions, or to track changes:
   http://drupal.org/project/issues/field_group
 
-REQUIREMENTS
-------------
+## Requirements
+
 None.
 
-INSTALLATION
-------------
+## Installation
+
 Install as you would normally install a contributed Drupal module. Visit:
 https://www.drupal.org/documentation/install/modules-themes/modules-8
 for further information.
 
-CONFIGURATION
--------------
-1. You can configure the field groups for different displays like, in
-managed_form_display and managed_display of the entity type.
-2. You can create different field groups under managed_form_display by
-adding a new group under "Add new group" label and the format the
-grouping using the desired formatter for displaying the same.
-3. Same thing can be done in managed_display.
-4. The field grouping done in managed display will be reflected on the
-view detail page of the entity, while that done in the
-managed_form_display will be reflected in the add/edit form of the entity.
+## Configuration
+
+    1. You can configure the field groups for different displays like, in
+    managed_form_display and managed_display of the entity type.
+    2. You can create different field groups under managed_form_display by
+    adding a new group under "Add new group" label and the format the
+    grouping using the desired formatter for displaying the same.
+    3. Same thing can be done in managed_display.
+    4. The field grouping done in managed display will be reflected on the
+    view detail page of the entity, while that done in the
+    managed_form_display will be reflected in the add/edit form of the entity.
 
 -- Create field groups --
 This section explains how to create groups of fields according to the type
@@ -96,11 +95,10 @@ For all groups, you can add id or classes.
 You can also choose if you want to mark a group as required if one of his fields
 is require (except for Accordions and Tabs : you must passed by their children).
 
-MAINTAINERS
------------
-stalski - http://drupal.org/user/322618
-zuuperman - http://drupal.org/user/361625
-swentel - http://drupal.org/user/107403
+## Maintainers
+* stalski (stalski) - http://drupal.org/user/322618
+* zuuperman (zuuperman) -  http://drupal.org/user/361625
+* swentel (swentel) - http://drupal.org/user/107403
 
 Inspirators:
-yched - http://drupal.org/user/39567
+* yched (yched) - http://drupal.org/user/39567
