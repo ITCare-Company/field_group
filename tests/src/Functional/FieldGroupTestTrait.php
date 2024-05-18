@@ -13,7 +13,7 @@ trait FieldGroupTestTrait {
    * @param string $entity_type
    *   The entity type as string.
    * @param string $bundle
-   *   The bundle of the enity type.
+   *   The bundle of the entity type.
    * @param string $context
    *   The context for the group.
    * @param string $mode

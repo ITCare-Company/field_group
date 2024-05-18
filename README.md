@@ -95,5 +95,5 @@ chosen.
 - zuuperman - [zuuperman](http://drupal.org/user/361625)
 - swentel - [swentel](http://drupal.org/user/107403)
 
-Inspirators:
+Inspirers:
 - yched - [yched](http://drupal.org/user/39567)

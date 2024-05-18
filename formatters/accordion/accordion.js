@@ -30,6 +30,7 @@
           heightStyle: 'content',
           active: active_index,
           collapsible: true,
+          // cspell:ignore changestart
           changestart: function (event, ui) {
             if ($(this).hasClass('effect-none')) {
               ui.options.animated = false;

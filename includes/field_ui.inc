@@ -285,7 +285,7 @@ function field_group_field_ui_display_form_alter(&$form, FormStateInterface $for
       $table[$name]['format']['type']['#attributes']['class'] = ['visually-hidden'];
     }
     else {
-      // After saving, the settings are updated here aswell. First we create
+      // After saving, the settings are updated here as well. First we create
       // the element for the table cell.
       $table[$name]['settings_summary'] = ['#markup' => ''];
       if (!empty($group->format_settings)) {

@@ -12,11 +12,11 @@
    */
   Drupal.FieldGroup = Drupal.FieldGroup || {};
   Drupal.FieldGroup.Effects = Drupal.FieldGroup.Effects || {};
-  Drupal.FieldGroup.groupWithfocus = null;
+  Drupal.FieldGroup.groupWithFocus = null;
 
-  Drupal.FieldGroup.setGroupWithfocus = function (element) {
+  Drupal.FieldGroup.setGroupWithFocus = function (element) {
     element.css({display: 'block'});
-    Drupal.FieldGroup.groupWithfocus = element;
+    Drupal.FieldGroup.groupWithFocus = element;
   };
 
   /**
@@ -47,12 +47,12 @@
         $(this).attr('id', fieldgroupID);
       });
 
-      // Set the hash in url to remember last userselection.
+      // Set the hash in url to remember last user selection.
       $('.group-wrapper ul li').each(function () {
         var fieldGroupNavigationListIndex = $(this).index();
         $(this).children('a').click(function () {
           var fieldset = $('.group-wrapper fieldset').get(fieldGroupNavigationListIndex);
-          // Grab the first id, holding the wanted hashurl.
+          // Grab the first id, holding the wanted hashUrl.
           var hashUrl = $(fieldset).attr('id').replace(/^field_group-/, '').split(' ')[0];
           window.location.hash = hashUrl;
         });

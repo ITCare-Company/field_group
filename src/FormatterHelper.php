@@ -43,7 +43,7 @@ class FormatterHelper implements TrustedCallbackInterface {
    * @return array
    *   The update entity view.
    */
-  public static function entityViewPrender(array $element) {
+  public static function entityViewPreRender(array $element) {
     field_group_build_entity_groups($element, 'view');
     return $element;
   }
@@ -194,7 +194,7 @@ class FormatterHelper implements TrustedCallbackInterface {
    * {@inheritdoc}
    */
   public static function trustedCallbacks() {
-    return ['entityViewPrender', 'formProcess', 'formGroupPreRender'];
+    return ['entityViewPreRender', 'formProcess', 'formGroupPreRender'];
   }
 
 }

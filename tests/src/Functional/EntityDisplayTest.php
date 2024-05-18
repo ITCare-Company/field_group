@@ -408,7 +408,7 @@ class EntityDisplayTest extends BrowserTestBase {
    * as the HTML is escaped in the core definition of the vertical tab. For more
    * information see: https://www.drupal.org/project/field_group/issues/3363890.
    */
-  public function todotestVerticalTabsLabelHtml() {
+  public function todoTestVerticalTabsLabelHtml() {
     $session = $this->assertSession();
     $data = [
       'label' => '<em>Tab 1</em>',
@@ -472,7 +472,7 @@ class EntityDisplayTest extends BrowserTestBase {
    * as the HTML is escaped in the core definition of the vertical tab. For more
    * information see: https://www.drupal.org/project/field_group/issues/3363890.
    */
-  public function todotestVerticalTabsLabelNoHtml() {
+  public function todoTestVerticalTabsLabelNoHtml() {
     $session = $this->assertSession();
     $data = [
       'label' => '<em>Tab 1</em>',

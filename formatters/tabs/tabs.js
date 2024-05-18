@@ -35,7 +35,7 @@
 
                 // Focus the first tab with error.
                 if (!errorFocussed) {
-                  Drupal.FieldGroup.setGroupWithfocus($this);
+                  Drupal.FieldGroup.setGroupWithFocus($this);
                   $this.data(direction + 'Tab').focus();
                   errorFocussed = true;
                 }
