@@ -3,7 +3,7 @@
  * Provides the fieldgroup behaviors for field UI.
  */
 
-(($) => {
+(($, Drupal, once) => {
   Drupal.behaviors.fieldUIFieldsOverview = {
     attach(context, settings) {
       once('field-field-overview', 'table#field-overview', context).forEach(
@@ -125,4 +125,4 @@
       });
     },
   };
-})(jQuery);
+})(jQuery, Drupal, once);

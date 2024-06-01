@@ -3,7 +3,7 @@
  * Provides the core logic for fieldgroup.
  */
 
-(($) => {
+(($, Drupal, drupalSettings) => {
   /**
    * Drupal FieldGroup object.
    */
@@ -66,4 +66,4 @@
       });
     },
   };
-})(jQuery);
+})(jQuery, Drupal, drupalSettings);

@@ -6,16 +6,14 @@ field_ui:
       css/field_group.field_ui.css: {}
   dependencies:
     - core/jquery
-    - core/once
     - core/drupal
-    - core/drupalSettings
+    - core/once
 
 core:
   js:
     js/field_group.js: {}
   dependencies:
     - core/jquery
-    - core/once
     - core/drupal
     - core/drupalSettings
 
