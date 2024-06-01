@@ -282,7 +282,7 @@ function field_group_field_ui_display_form_alter(&$form, FormStateInterface $for
         ],
       ];
       $table[$name]['#attributes']['class'][] = 'field-formatter-settings-editing';
-      $table[$name]['format']['type']['#attributes']['class'] = ['visually-hidden'];
+      $table[$name]['format']['type']['#wrapper_attributes']['class'] = ['visually-hidden'];
     }
     else {
       // After saving, the settings are updated here as well. First we create
