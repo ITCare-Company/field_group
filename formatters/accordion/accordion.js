@@ -3,10 +3,7 @@
  * Provides the processing logic for accordion.
  */
 
-(function ($) {
-
-  'use strict';
-
+(($) => {
   Drupal.FieldGroup = Drupal.FieldGroup || {};
   Drupal.FieldGroup.Effects = Drupal.FieldGroup.Effects || {};
 
@@ -14,48 +11,58 @@
    * Implements Drupal.FieldGroup.processHook().
    */
   Drupal.FieldGroup.Effects.processAccordion = {
-    execute: function (context, settings, group_info) {
-      $(once('fieldgroup-effects', 'div.field-group-accordion-wrapper', context)).each(function () {
-        var wrapper = $(this);
+    execute(context, settings, groupInfo) {
+      $(
+        once(
+          'fieldgroup-effects',
+          'div.field-group-accordion-wrapper',
+          context,
+        ),
+      ).each((index, elementWrapper) => {
+        const wrapper = $(elementWrapper);
 
         // Get the index to set active.
-        var active_index = false;
-        wrapper.find('.accordion-item').each(function (i) {
+        let activeIndex = false;
+        wrapper.find('.accordion-item').each((i) => {
           if ($(this).hasClass('field-group-accordion-active')) {
-            active_index = i;
+            activeIndex = i;
           }
         });
 
         wrapper.accordion({
           heightStyle: 'content',
-          active: active_index,
+          active: activeIndex,
           collapsible: true,
           // cspell:ignore changestart
-          changestart: function (event, ui) {
+          changestart(event, ui) {
             if ($(this).hasClass('effect-none')) {
               ui.options.animated = false;
-            }
-            else {
+            } else {
               ui.options.animated = 'slide';
             }
-          }
+          },
         });
 
-        if (group_info.context === 'form') {
-
-          var $firstErrorItem = false;
+        if (groupInfo.context === 'form') {
+          let $firstErrorItem = false;
 
           // Add required fields mark to any element containing required fields.
-          wrapper.find('div.field-group-accordion-item').each(function (i) {
+          wrapper.find('div.field-group-accordion-item').each((i, element) => {
+            const $this = $(element);
 
-            var $this = $(this);
-            if ($this.is('.required-fields') && ($this.find('[required]').length > 0 || $this.find('.form-required').length > 0)) {
+            if (
+              element.matches('.required-fields') &&
+              ($this.find('[required]').length > 0 ||
+                $this.find('.form-required').length > 0)
+            ) {
               $('h3.ui-accordion-header a').eq(i).addClass('form-required');
             }
             if ($('.error', $this).length) {
               // Save first error item, for focussing it.
               if (!$firstErrorItem) {
-                $firstErrorItem = $this.parent().accordion('option', 'active', i);
+                $firstErrorItem = $this
+                  .parent()
+                  .accordion('option', 'active', i);
               }
               $('h3.ui-accordion-header').eq(i).addClass('error');
             }
@@ -63,12 +70,15 @@
 
           // Save first error item, for focussing it.
           if (!$firstErrorItem) {
-            $('.ui-accordion-content-active', $firstErrorItem).css({height: 'auto', width: 'auto', display: 'block'});
+            // eslint-disable-next-line jquery/no-css
+            $('.ui-accordion-content-active', $firstErrorItem).css({
+              height: 'auto',
+              width: 'auto',
+              display: 'block',
+            });
           }
-
         }
       });
-    }
+    },
   };
-
 })(jQuery);

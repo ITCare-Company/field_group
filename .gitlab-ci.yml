@@ -33,6 +33,7 @@ include:
 #  - Composer: Require additional packages to pass phpstan validation.
 #  - PHPCS and PHPStan: Require jobs to pass.
 #  - Cspell: Ignore certain files or keywords.
+#  - ESLint: Require eslint job to pass.
 ################
 
 #
@@ -52,6 +53,20 @@ composer:
     - composer require drupal/ds
 
 #
+# CSpell overrides and configuration:
+#
+cspell:
+  # Require spellcheck to pass.
+  allow_failure: false
+
+#
+# ESLint overrides and configuration.
+#
+eslint:
+  # Require eslint to pass.
+  allow_failure: false
+
+#
 # PHPCS overrides and configuration.
 #
 phpcs:
@@ -65,9 +80,3 @@ phpstan:
   # Require phpstan to pass.
   allow_failure: false
 
-#
-# CSpell overrides and configuration:
-#
-cspell:
-  # Require spellcheck to pass.
-  allow_failure: false
