@@ -179,7 +179,6 @@ class HtmlElement extends FieldGroupFormatterBase {
       '#options' => [
         'none' => $this->t('None'),
         'collapsible' => $this->t('Collapsible'),
-        'blind' => $this->t('Blind'),
       ],
       '#default_value' => $this->getSetting('effect'),
       '#weight' => 6,

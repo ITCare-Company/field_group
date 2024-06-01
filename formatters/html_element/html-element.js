@@ -64,8 +64,6 @@
             $wrapper.hasClass('speed-none')
           ) {
             $('> .field-group-wrapper', wrapper).toggle();
-          } else if ($wrapper.hasClass('effect-blind')) {
-            $('> .field-group-wrapper', wrapper).toggle('blind', {}, speed);
           } else {
             $('> .field-group-wrapper', wrapper).toggle(speed);
           }
