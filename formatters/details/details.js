@@ -3,7 +3,7 @@
  * Provides the processing logic for details element.
  */
 
-(($) => {
+(($, once) => {
   Drupal.FieldGroup = Drupal.FieldGroup || {};
   Drupal.FieldGroup.Effects = Drupal.FieldGroup.Effects || {};
 
@@ -27,4 +27,4 @@
       );
     },
   };
-})(jQuery);
+})(jQuery, once);

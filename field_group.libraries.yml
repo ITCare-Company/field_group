@@ -36,6 +36,7 @@ formatter.details:
     formatters/details/details.js: {}
   dependencies:
     - core/jquery
+    - core/once
 
 formatter.tabs:
   js:
