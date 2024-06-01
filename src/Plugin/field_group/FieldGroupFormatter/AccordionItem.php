@@ -60,7 +60,7 @@ class AccordionItem extends FieldGroupFormatterBase {
       $element['#open'] = TRUE;
     }
 
-    foreach ($element as $key => $value) {
+    foreach ($element as $value) {
       if (is_array($value) && !empty($value['#children_errors'])) {
         $element['#open'] = TRUE;
       }

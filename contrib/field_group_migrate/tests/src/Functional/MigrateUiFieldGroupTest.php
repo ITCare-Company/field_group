@@ -146,6 +146,7 @@ class MigrateUiFieldGroupTest extends MigrateUpgradeTestBase {
       // Introduce database driver extensions and
       // autoload database drivers' dependencies.
       // @see https://www.drupal.org/node/3258175
+      // @phpstan-ignore-next-line
       $drivers = drupal_get_database_types();
     }
 

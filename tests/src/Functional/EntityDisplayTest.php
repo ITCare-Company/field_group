@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\field_group\Functional;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\Tests\BrowserTestBase;
@@ -14,6 +15,7 @@ use Drupal\Tests\BrowserTestBase;
 class EntityDisplayTest extends BrowserTestBase {
 
   use FieldGroupTestTrait;
+  use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
@@ -132,7 +134,7 @@ class EntityDisplayTest extends BrowserTestBase {
     $this->drupalGet('node/' . $this->node->id());
 
     // Test if group is not shown.
-    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id')]"), t('Div that contains fields with no access is not shown.'));
+    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id')]"), $this->t('Div that contains fields with no access is not shown.'));
   }
 
   /**

@@ -30,6 +30,8 @@ include:
 
 ################
 # Field Group: Pipeline configuration variables and custom jobs, mostly:
+#  - Composer: Require additional packages to pass phpstan validation.
+#  - PHPCS and PHPStan: Require jobs to pass.
 #  - Cspell: Ignore certain files or keywords.
 ################
 
@@ -40,6 +42,28 @@ variables:
   # CSpell: Ignore deprecated DrupalCI configuration file which should be
   # removed when DrupalCI is decommissioned in favor of GitlabCI.
   _CSPELL_IGNORE_PATHS: '"drupalci.yml"'
+
+#
+# Composer overrides and configuration.
+#
+composer:
+  after_script:
+    # Require external packages dependencies to pass phpstan validation.
+    - composer require drupal/ds
+
+#
+# PHPCS overrides and configuration.
+#
+phpcs:
+  # Require phpcs to pass.
+  allow_failure: false
+
+#
+# PHPSTAN overrides and configuration.
+#
+phpstan:
+  # Require phpstan to pass.
+  allow_failure: false
 
 #
 # CSpell overrides and configuration:
