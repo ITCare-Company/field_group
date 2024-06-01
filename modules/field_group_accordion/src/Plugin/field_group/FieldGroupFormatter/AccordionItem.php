@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\field_group\Plugin\field_group\FieldGroupFormatter;
+namespace Drupal\field_group_accordion\Plugin\field_group\FieldGroupFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Xss;
@@ -12,7 +12,7 @@ use Drupal\field_group\FieldGroupFormatterBase;
  *
  * @FieldGroupFormatter(
  *   id = "accordion_item",
- *   label = @Translation("Accordion Item"),
+ *   label = @Translation("Accordion Item (Deprecated)"),
  *   description = @Translation("This fieldgroup renders the content in a div, part of accordion group."),
  *   format_types = {
  *     "open",

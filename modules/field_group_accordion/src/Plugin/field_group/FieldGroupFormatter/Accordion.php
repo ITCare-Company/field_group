@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\field_group\Plugin\field_group\FieldGroupFormatter;
+namespace Drupal\field_group_accordion\Plugin\field_group\FieldGroupFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormState;
@@ -12,7 +12,7 @@ use Drupal\field_group\FieldGroupFormatterBase;
  *
  * @FieldGroupFormatter(
  *   id = "accordion",
- *   label = @Translation("Accordion"),
+ *   label = @Translation("Accordion (Deprecated)"),
  *   description = @Translation("This fieldgroup renders child groups as jQuery accordion."),
  *   supported_contexts = {
  *     "form",
