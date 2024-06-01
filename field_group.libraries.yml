@@ -53,7 +53,6 @@ formatter.tabs:
   dependencies:
     - core/jquery
     - core/once
-    - core/modernizr
 
 element.horizontal_tabs:
   js:
@@ -66,4 +65,3 @@ element.horizontal_tabs:
     - core/jquery
     - core/once
     - core/drupal.collapse
-    - core/modernizr
