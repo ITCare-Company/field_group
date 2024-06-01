@@ -4,8 +4,8 @@ namespace Drupal\field_group_accordion\Plugin\field_group\FieldGroupFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormState;
-use Drupal\field_group\Element\Accordion as AccordionElement;
 use Drupal\field_group\FieldGroupFormatterBase;
+use Drupal\field_group_accordion\Element\Accordion as AccordionElement;
 
 /**
  * Plugin implementation of the 'accordion' formatter.
