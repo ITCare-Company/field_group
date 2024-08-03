@@ -2,14 +2,14 @@
 
 namespace Drupal\field_group_accordion\Element;
 
-use Drupal\Core\Render\Element\RenderElementBase;
+use Drupal\Core\Render\Element\RenderElement;
 
 /**
  * Provides a render element for an accordion item.
  *
  * @FormElement("field_group_accordion_item")
  */
-class AccordionItem extends RenderElementBase {
+class AccordionItem extends RenderElement {
 
   /**
    * {@inheritdoc}

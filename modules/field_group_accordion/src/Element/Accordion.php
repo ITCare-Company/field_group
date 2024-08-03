@@ -3,14 +3,14 @@
 namespace Drupal\field_group_accordion\Element;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element\RenderElementBase;
+use Drupal\Core\Render\Element\RenderElement;
 
 /**
  * Provides a render element for an accordion.
  *
  * @FormElement("field_group_accordion")
  */
-class Accordion extends RenderElementBase {
+class Accordion extends RenderElement {
 
   /**
    * {@inheritdoc}
