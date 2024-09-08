@@ -67,7 +67,7 @@
                     .trim();
                 } else {
                   summary =
-                    summaryElement.clone().html().trim() ||
+                    summaryElement.clone().children().remove().end().html().trim() ||
                     summaryElement.find('> span:first-child').html().trim();
                 }
 
