@@ -277,6 +277,8 @@
       )),
     );
 
+    tab.item.addClass(settings.details.attr('class'));
+
     // No need to add summary on frontend.
     if (settings.details.drupalGetSummary) {
       tab.link.append((tab.summary = $('<span class="summary"></span>')));
