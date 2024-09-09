@@ -58,24 +58,3 @@ composer:
 composer (next major):
   after_script:
     - composer require drupal/ds
-
-#
-# PHPSTAN overrides and configuration.
-#
-phpstan:
-  # Require phpstan to pass.
-  allow_failure: false
-
-#
-# CSpell overrides and configuration:
-#
-cspell:
-  # Require spellcheck to pass.
-  allow_failure: false
-
-#
-# PHPCS overrides and configuration.
-#
-phpcs:
-  # Require phpcs to pass.
-  allow_failure: false

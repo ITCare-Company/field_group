@@ -350,9 +350,6 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
       'title' => 'Test',
     ]);
     $this->drupalGet('node/' . $node->id());
-    // See if the field group supports HTML elements in the label:
-    // Note, for some reason only Tab 2 gets rendered on the page:
-    // We expect the HTML to be not escaped:
     $session->elementContains('css', 'div.test-class-wrapper li.horizontal-tab-button.first > a > strong', '<em>Tab 2</em>');
   }
 
@@ -419,9 +416,6 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
       'title' => 'Test',
     ]);
     $this->drupalGet('node/' . $node->id());
-    // See if the field group supports HTML elements in the label:
-    // Note, for some reason only Tab 2 gets rendered on the page:
-    // We expect the HTML to be not escaped:
     $session->elementContains('css', 'div.test-class-wrapper li.horizontal-tab-button.first > a > strong', '&lt;em&gt;Tab 2&lt;/em&gt');
   }
 
