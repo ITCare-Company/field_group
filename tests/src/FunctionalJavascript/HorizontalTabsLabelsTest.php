@@ -290,6 +290,7 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
   public function testHorizontalTabsLabelHtml() {
     $session = $this->assertSession();
 
+    // @codingStandardsIgnoreStart
     // @todo For some reason this tab gets overridden by tab2. When being
     // rendered alone, it will show up.
     // $data = [
@@ -307,6 +308,7 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
     //   ],
     // ];
     // $tab1 = $this->createGroup('node', $this->testNodeType->id(), 'view', 'default', $data);
+    // @codingStandardsIgnoreEnd
 
     $data = [
       'label' => '<em>Tab 2</em>',
@@ -359,6 +361,7 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
   public function testHorizontalTabsLabelNoHtml() {
     $session = $this->assertSession();
 
+    // @codingStandardsIgnoreStart
     // @todo For some reason this tab gets overridden by tab2. When being
     // rendered alone, it will show up.
     // $data = [
@@ -376,6 +379,7 @@ class HorizontalTabsLabelsTest extends WebDriverTestBase {
     //   ],
     // ];
     // $tab1 = $this->createGroup('node', $this->testNodeType->id(), 'view', 'default', $data);
+    // @codingStandardsIgnoreEnd
 
     $data = [
       'label' => '<em>Tab 2</em>',

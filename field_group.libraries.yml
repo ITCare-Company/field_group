@@ -48,7 +48,7 @@ formatter.tabs:
 element.horizontal_tabs:
   js:
     # Load before field_group/core.
-    formatters/tabs/horizontal-tabs.js: {weight: -1}
+    formatters/tabs/horizontal-tabs.js: { weight: -1 }
   css:
     component:
       formatters/tabs/horizontal-tabs.css: {}
@@ -74,4 +74,3 @@ tabs_validation:
     js/field_group.tabs_validation.js: {}
   dependencies:
     - core/jquery
-

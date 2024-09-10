@@ -175,8 +175,8 @@ class EntityDisplayTest extends BrowserTestBase {
     $this->drupalGet($this->node->toUrl('edit-form'));
 
     // Test that both groups are not shown.
-    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id-child')]"), t('Div that contains fields with no access is not shown.'));
-    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id-parent')]"), t('Div that contains fields with no access is not shown.'));
+    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id-child')]"), $this->t('Div that contains fields with no access is not shown.'));
+    $this->assertEmpty($this->xpath("//div[contains(@id, 'wrapper-id-parent')]"), $this->t('Div that contains fields with no access is not shown.'));
   }
 
   /**
