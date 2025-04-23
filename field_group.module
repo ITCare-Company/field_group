@@ -355,6 +355,7 @@ function field_group_entity_view_alter(&$build, EntityInterface $entity, EntityD
     $ds_enabled = FALSE;
     if (Drupal::moduleHandler()->moduleExists('ds')) {
       // Check if DS is enabled for this display.
+      // @phpstan-ignore-next-line
       if ($display->getThirdPartySetting('ds', 'layout') && !Ds::isDisabled()) {
         $ds_enabled = TRUE;
       }
@@ -415,7 +416,7 @@ function field_group_form_pre_render(array $element) {
  *
  * @param array $element
  *   Form that is being processed.
- * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param \Drupal\Core\Form\FormStateInterface|null $form_state
  *   The current state of the form.
  * @param array $form
  *   The complete form structure.
@@ -629,9 +630,9 @@ function field_group_build_entity_groups(array &$vars, $context = 'view') {
  *
  * @param array $element
  *   The current element to analyze for grouping.
- * @param array $vars
+ * @param array|null $vars
  *   Rendering vars from the entity being viewed.
- * @param string $context
+ * @param string|null $context
  *   The display context (entity type, form or view).
  */
 function field_group_fields_nest(array &$element, ?array &$vars = NULL, $context = NULL) {
@@ -722,9 +723,9 @@ function field_group_fields_nest(array &$element, ?array &$vars = NULL, $context
  *
  * @param array $element
  *   The part of the form.
- * @param array $vars
+ * @param array|null $vars
  *   Rendering vars from the entity being viewed.
- * @param string $context
+ * @param string|null $context
  *   The display context (entity type, form or view).
  */
 function field_group_field_layout_fields_nest(array &$element, ?array &$vars = NULL, $context = NULL) {
@@ -866,7 +867,7 @@ function field_group_get_content_element_key($context = 'default') {
  *
  * @param object $group
  *   A group definition.
- * @param \Drupal\Core\Entity\Display\EntityDisplayInterface $display
+ * @param \Drupal\Core\Entity\Display\EntityDisplayInterface|null $display
  *   The display to update if known.
  *
  * @return \Drupal\Core\Entity\Display\EntityDisplayInterface|null

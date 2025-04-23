@@ -52,7 +52,7 @@ class FormatterHelper implements TrustedCallbackInterface {
    *
    * @param array $element
    *   Form that is being processed.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   * @param \Drupal\Core\Form\FormStateInterface|null $form_state
    *   The current state of the form.
    * @param array $form
    *   The complete form structure.
