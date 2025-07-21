@@ -8,6 +8,22 @@
   Drupal.FieldGroup.Effects = Drupal.FieldGroup.Effects || {};
 
   /**
+   * Show the parent horizontal tab pane of a targeted page fragment.
+   *
+   * This is actually the same as vertical-tabs.js in Drupal core.
+   *
+   * @param {jQuery.Event} e
+   *   The event triggered.
+   * @param {jQuery} $target
+   *   The targeted node as a jQuery object.
+   */
+  const handleFragmentLinkClickOrHashChange = (e, $target) => {
+    $target.parents('details.horizontal-tab-hidden').each((index, pane) => {
+      $(pane).data('horizontalTab').focus();
+    });
+  };
+
+  /**
    * Transforms a set of fieldsets into a stack of horizontal tabs.
    *
    * Each tab may have a summary which can be updated by another
@@ -20,6 +36,14 @@
     attach(context) {
       const width = drupalSettings.widthBreakpoint || 640;
       const mq = `(max-width: ${width}px)`;
+
+      /**
+       * Binds a listener to handle fragment link clicks and URL hash changes.
+       */
+      $(once('field-group-horizontal-tabs-fragments', 'body')).on(
+        'formFragmentLinkClickOrHashChange.horizontalTabs',
+        handleFragmentLinkClickOrHashChange,
+      );
 
       if (window.matchMedia(mq).matches) {
         return;
