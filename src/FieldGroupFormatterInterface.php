@@ -3,6 +3,7 @@
 namespace Drupal\field_group;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Interface definition for fieldgroup formatter plugins.
@@ -47,10 +48,15 @@ interface FieldGroupFormatterInterface extends PluginInspectionInterface {
    * administrators to configure the formatter. The field_group module takes
    * care of handling submitted form values.
    *
+   * @param $form
+   *    An associative array containing the structure of the form.
+   * @param $form_state
+   *    The current state of the form.
+   *
    * @return array
    *   The form elements for the formatter settings.
    */
-  public function settingsForm();
+  public function settingsForm(array $form, FormStateInterface $form_state);
 
   /**
    * Returns a short summary for the current formatter settings.

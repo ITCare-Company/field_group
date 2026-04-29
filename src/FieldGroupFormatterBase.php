@@ -83,7 +83,7 @@ abstract class FieldGroupFormatterBase extends PluginSettingsBase implements Fie
   /**
    * {@inheritdoc}
    */
-  public function settingsForm() {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
 
     $class = get_class($this);
 

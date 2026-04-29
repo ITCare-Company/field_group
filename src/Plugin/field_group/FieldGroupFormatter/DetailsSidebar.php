@@ -2,6 +2,8 @@
 
 namespace Drupal\field_group\Plugin\field_group\FieldGroupFormatter;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Details Sidebar element.
  *
@@ -33,8 +35,8 @@ class DetailsSidebar extends Details {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm() {
-    $form = parent::settingsForm();
+  public function settingsForm(array $form, FormStateInterface $form_state) {
+    $form = parent::settingsForm($form, $form_state);
 
     $form['weight'] = [
       '#type' => 'number',

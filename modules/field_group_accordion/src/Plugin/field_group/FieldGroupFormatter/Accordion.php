@@ -4,6 +4,7 @@ namespace Drupal\field_group_accordion\Plugin\field_group\FieldGroupFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormState;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\field_group\FieldGroupFormatterBase;
 use Drupal\field_group_accordion\Element\Accordion as AccordionElement;
 
@@ -59,9 +60,9 @@ class Accordion extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm() {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
 
-    $form = parent::settingsForm();
+    $form = parent::settingsForm($form, $form_state);
 
     $form['effect'] = [
       '#title' => $this->t('Effect'),

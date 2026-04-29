@@ -5,6 +5,7 @@ namespace Drupal\field_group\Plugin\field_group\FieldGroupFormatter;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\FormState;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Template\Attribute;
 use Drupal\field_group\Element\HtmlElement as HtmlElementRenderElement;
@@ -109,9 +110,9 @@ class HtmlElement extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm() {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
 
-    $form = parent::settingsForm();
+    $form = parent::settingsForm($form, $form_state);
 
     $form['element'] = [
       '#title' => $this->t('Element'),
