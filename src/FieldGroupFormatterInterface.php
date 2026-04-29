@@ -23,10 +23,10 @@ interface FieldGroupFormatterInterface extends PluginInspectionInterface {
    *
    * @param array $element
    *   The field group render array.
-   * @param object $processed_object
-   *   The object / entity being processed.
+   * @param array $processed_array
+   *   The render array of the form this group is being built within.
    */
-  public function process(array &$element, $processed_object);
+  public function process(array &$element, $processed_array);
 
   /**
    * Field formatter prerender function.
@@ -36,10 +36,10 @@ interface FieldGroupFormatterInterface extends PluginInspectionInterface {
    *
    * @param array $element
    *   The field group render array.
-   * @param object $rendering_object
-   *   The object / entity being rendered.
+   * @param array $render_array
+   *   The render array of the entity or form this group is being built within.
    */
-  public function preRender(array &$element, $rendering_object);
+  public function preRender(array &$element, $render_array);
 
   /**
    * Returns a form to configure settings for the formatter.

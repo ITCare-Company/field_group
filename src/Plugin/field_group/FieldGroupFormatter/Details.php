@@ -26,7 +26,7 @@ class Details extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function process(&$element, $processed_object) {
+  public function process(&$element, $processed_array) {
 
     $element += [
       '#type' => 'details',
@@ -59,9 +59,9 @@ class Details extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function preRender(&$element, $rendering_object) {
-    parent::preRender($element, $rendering_object);
-    $this->process($element, $rendering_object);
+  public function preRender(&$element, $render_array) {
+    parent::preRender($element, $render_array);
+    $this->process($element, $render_array);
   }
 
   /**

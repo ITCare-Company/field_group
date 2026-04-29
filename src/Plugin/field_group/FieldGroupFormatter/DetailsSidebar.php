@@ -22,8 +22,8 @@ class DetailsSidebar extends Details {
   /**
    * {@inheritdoc}
    */
-  public function process(&$element, $processed_object) {
-    parent::process($element, $processed_object);
+  public function process(&$element, $processed_array) {
+    parent::process($element, $processed_array);
 
     $element['#group'] = 'advanced';
 

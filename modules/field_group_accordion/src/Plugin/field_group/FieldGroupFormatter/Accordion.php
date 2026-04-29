@@ -26,10 +26,10 @@ class Accordion extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function process(&$element, $processed_object) {
+  public function process(&$element, $processed_array) {
 
     // Keep using preRender parent for BC.
-    parent::preRender($element, $processed_object);
+    parent::preRender($element, $processed_array);
 
     $element += [
       '#type' => 'field_group_accordion',
@@ -50,8 +50,8 @@ class Accordion extends FieldGroupFormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function preRender(&$element, $rendering_object) {
-    $this->process($element, $rendering_object);
+  public function preRender(&$element, $render_array) {
+    $this->process($element, $render_array);
 
     $form_state = new FormState();
     AccordionElement::processAccordion($element, $form_state);

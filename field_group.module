@@ -481,7 +481,7 @@ function field_group_field_group_form_process(array &$element, &$group, &$comple
 /**
  * Implements hook_field_group_pre_render().
  */
-function field_group_field_group_pre_render(array &$element, &$group, &$rendering_object) {
+function field_group_field_group_pre_render(array &$element, &$group, &$render_array) {
   // Add all field_group format types to the js settings.
   $element['#attached']['drupalSettings']['field_group'] = [
     field_group_get_settings_key($group) => [
@@ -504,7 +504,7 @@ function field_group_field_group_pre_render(array &$element, &$group, &$renderin
     'group' => $group,
   ]);
   if ($plugin) {
-    $plugin->preRender($element, $rendering_object);
+    $plugin->preRender($element, $render_array);
   }
 }
 
@@ -816,12 +816,12 @@ function field_group_field_layout_fields_nest(array &$element, ?array &$vars = N
  *   Render array of group element that needs to be created.
  * @param object $group
  *   Object with the group information.
- * @param object $rendering_object
- *   The entity / form being rendered.
+ * @param array $render_array
+ *   The render array of the entity or form this group belongs to.
  *
  * @see field_group_fields_nest()
  */
-function field_group_pre_render(array &$element, $group, &$rendering_object) {
+function field_group_pre_render(array &$element, $group, &$render_array) {
 
   // Only run the pre_render function if the group has elements.
   // $group->group_name.
@@ -836,20 +836,20 @@ function field_group_pre_render(array &$element, $group, &$rendering_object) {
   // Note, implement $element by reference!
   if (method_exists(Drupal::moduleHandler(), 'invokeAllWith')) {
     // On Drupal >= 9.4 use the new method.
-    Drupal::moduleHandler()->invokeAllWith('field_group_pre_render', function (callable $hook) use (&$element, &$group, &$rendering_object) {
-      $hook($element, $group, $rendering_object);
+    Drupal::moduleHandler()->invokeAllWith('field_group_pre_render', function (callable $hook) use (&$element, &$group, &$render_array) {
+      $hook($element, $group, $render_array);
     });
   }
   else {
     // @phpstan-ignore-next-line
     foreach (Drupal::moduleHandler()->getImplementations('field_group_pre_render') as $module) {
       $function = $module . '_field_group_pre_render';
-      $function($element, $group, $rendering_object);
+      $function($element, $group, $render_array);
     }
   }
 
   // Allow others to alter the pre_render.
-  Drupal::moduleHandler()->alter('field_group_pre_render', $element, $group, $rendering_object);
+  Drupal::moduleHandler()->alter('field_group_pre_render', $element, $group, $render_array);
 
 }
 
