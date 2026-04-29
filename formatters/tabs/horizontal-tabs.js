@@ -57,7 +57,7 @@
             .each((indexTabWrapper, tabWrapper) => {
               const $this = $(tabWrapper).addClass('horizontal-tabs-panes');
               const focusID = $(
-                ':hidden.horizontal-tabs-active-tab',
+                '> :hidden.horizontal-tabs-active-tab',
                 tabWrapper,
               ).val();
               let defaultTab;
