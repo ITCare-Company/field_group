@@ -61,6 +61,11 @@ function field_group_theme_registry_alter(&$theme_registry) {
     }
   }
 
+  // External entities use the external_entity as theme function.
+  if (isset($theme_registry['external_entity'])) {
+    $entity_types[] = 'external_entity';
+  }
+
   foreach ($theme_registry as $theme_hook => $info) {
     if (in_array($theme_hook, $entity_types) || (!empty($info['base hook']) && in_array($info['base hook'], $entity_types))) {
       $theme_registry[$theme_hook]['preprocess functions'][] = 'field_group_build_entity_groups';
@@ -70,11 +75,6 @@ function field_group_theme_registry_alter(&$theme_registry) {
   // ECK does not use the eck as theme function.
   if (isset($theme_registry['eck_entity'])) {
     $theme_registry['eck_entity']['preprocess functions'][] = 'field_group_build_entity_groups';
-  }
-
-  // External entities use the external_entity as theme function.
-  if (isset($theme_registry['external_entity'])) {
-    $theme_registry['external_entity']['preprocess functions'][] = 'field_group_build_entity_groups';
   }
 }
 
