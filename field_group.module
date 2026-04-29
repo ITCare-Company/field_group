@@ -429,12 +429,32 @@ function field_group_form_process(array &$element, ?FormStateInterface $form_sta
 }
 
 /**
+ * Get a settings key to store the JavaScript settings in.
+ *
+ * The settings key should be the format type. If the format type has variations
+ * like Vertical and Horizontal tabs, the key can be made unique here.
+ *
+ * @param \stdClass $group
+ *   The group.
+ *
+ * @return string
+ *   The settings key to store the attached JavaScript settings in.
+ */
+function field_group_get_settings_key(stdClass $group): string {
+  $settings_key = $group->format_type;
+  if (!empty($group->format_settings['direction'])) {
+    $settings_key .= $group->format_settings['direction'];
+  }
+  return $settings_key;
+}
+
+/**
  * Implements hook_field_group_form_process().
  */
 function field_group_field_group_form_process(array &$element, &$group, &$complete_form) {
   // Add all field_group format types to the js settings.
   $element['#attached']['drupalSettings']['field_group'] = [
-    $group->format_type => [
+    field_group_get_settings_key($group) => [
       'mode' => $group->mode,
       'context' => $group->context,
       'settings' => $group->format_settings,
@@ -464,7 +484,7 @@ function field_group_field_group_form_process(array &$element, &$group, &$comple
 function field_group_field_group_pre_render(array &$element, &$group, &$rendering_object) {
   // Add all field_group format types to the js settings.
   $element['#attached']['drupalSettings']['field_group'] = [
-    $group->format_type => [
+    field_group_get_settings_key($group) => [
       'mode' => $group->mode,
       'context' => $group->context,
       'settings' => $group->format_settings,
