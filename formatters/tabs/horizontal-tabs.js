@@ -60,6 +60,8 @@
                 ':hidden.horizontal-tabs-active-tab',
                 tabWrapper,
               ).val();
+              let defaultTab;
+              let defaultTabFromLink;
               let tabFocus;
 
               // Check if there are some details that can be converted to horizontal-tabs.
@@ -113,24 +115,27 @@
                   .addClass('horizontal-tabs-pane')
                   .data('horizontalTab', horizontalTab);
                 if (element.id === focusID) {
-                  tabFocus = $thisDetail;
+                  defaultTab = $thisDetail;
                 }
               });
 
               $(tabList).find('> li:first').addClass('first');
               $(tabList).find('> li:last').addClass('last');
 
-              if (!tabFocus) {
-                // If the current URL has a fragment and one of the tabs contains an
-                // element that matches the URL fragment, activate that tab.
-                // eslint-disable-next-line no-useless-escape
-                const hash = window.location.hash.replace(/[=%;,\/]/g, '');
-                if (hash !== '#' && $(hash, this).length) {
-                  tabFocus = $(hash, this).closest('.horizontal-tabs-pane');
-                } else {
-                  tabFocus = $this.find('> .horizontal-tabs-pane:first');
-                }
+              // If the current URL has a fragment and one of the tabs contains
+              // an element that matches the URL fragment, activate that tab.
+              // Otherwise fall back to the previously active tab (preserved
+              // across form rebuilds via the horizontal-tabs-active-tab hidden
+              // input), and finally to the first pane.
+              const hash = window.location.hash.replace(/[=%;,\/]/g, '');
+              if (hash !== '#' && $(hash, $this).length) {
+                defaultTabFromLink = $(hash, $this).closest('.horizontal-tabs-pane');
               }
+
+              tabFocus =
+                defaultTabFromLink ||
+                defaultTab ||
+                $this.find('> .horizontal-tabs-pane:first');
               if (tabFocus.length) {
                 tabFocus.data('horizontalTab').focus();
               }
@@ -157,6 +162,7 @@
     this.link.on('click', (e) => {
       e.preventDefault();
       self.focus();
+      history.replaceState(null, '', `#${self.details.attr('id')}`);
     });
 
     // Keyboard events added:
