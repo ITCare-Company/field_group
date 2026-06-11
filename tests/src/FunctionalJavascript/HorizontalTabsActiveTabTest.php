@@ -8,8 +8,6 @@ use Drupal\Tests\field_group\Functional\FieldGroupTestTrait;
 /**
  * Tests horizontal tabs active-tab resolution.
  *
- * cspell:ignore horizontaltabbutton
- *
  * @group field_group
  */
 class HorizontalTabsActiveTabTest extends WebDriverTestBase {

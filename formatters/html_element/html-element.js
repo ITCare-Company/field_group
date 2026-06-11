@@ -42,8 +42,7 @@
 
       // Add required field markers if needed.
       if (
-        // eslint-disable-next-line jquery/no-is
-        $wrapper.is('.required-fields') &&
+        $wrapper.get(0).matches('.required-fields') &&
         ($wrapper.find('[required]').length > 0 ||
           $wrapper.find('.form-required').length > 0)
       ) {

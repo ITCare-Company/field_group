@@ -59,10 +59,9 @@
               const focusID = $(
                 '> :hidden.horizontal-tabs-active-tab',
                 tabWrapper,
-              ).val();
+              ).get(0)?.value;
               let defaultTab;
               let defaultTabFromLink;
-              let tabFocus;
 
               // Check if there are some details that can be converted to horizontal-tabs.
               const $details = $this.find('> details');
@@ -91,8 +90,7 @@
                   // Remove the required mark element from the tab title, if it
                   // exists (e.g. gin theme will have it twice).
                   tabTitle =
-                    $summaryElement
-                      .clone()
+                    $($summaryElement.get(0).cloneNode(true))
                       .find('.required-mark')
                       .remove()
                       .end()
@@ -127,12 +125,14 @@
               // Otherwise fall back to the previously active tab (preserved
               // across form rebuilds via the horizontal-tabs-active-tab hidden
               // input), and finally to the first pane.
-              const hash = window.location.hash.replace(/[=%;,\/]/g, '');
+              const hash = window.location.hash.replace(/[=%;,/]/g, '');
               if (hash !== '#' && $(hash, $this).length) {
-                defaultTabFromLink = $(hash, $this).closest('.horizontal-tabs-pane');
+                defaultTabFromLink = $(hash, $this).closest(
+                  '.horizontal-tabs-pane',
+                );
               }
 
-              tabFocus =
+              const tabFocus =
                 defaultTabFromLink ||
                 defaultTab ||
                 $this.find('> .horizontal-tabs-pane:first');
@@ -162,7 +162,7 @@
     this.link.on('click', (e) => {
       e.preventDefault();
       self.focus();
-      history.replaceState(null, '', `#${self.details.attr('id')}`);
+      window.history.replaceState(null, '', `#${self.details.attr('id')}`);
     });
 
     // Keyboard events added:

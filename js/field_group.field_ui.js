@@ -40,7 +40,6 @@
     getRegion() {
       return 'main';
     },
-    // eslint-disable-next-line no-unused-vars
     regionChange(region, recurse) {
       return {};
     },
@@ -49,7 +48,6 @@
       // Create a new tabledrag rowObject, that will compute the group's child
       // rows for us.
       const { tableDrag } = element;
-      // eslint-disable-next-line new-cap
       const rowObject = new tableDrag.row(element.row, 'mouse', true);
       // Skip the main row, we handled it above.
       rowObject.group.shift();
@@ -86,7 +84,7 @@
 
   Drupal.fieldUIDisplayOverview.group.prototype = {
     getRegion: function getRegion() {
-      return this.$regionSelect.val();
+      return this.$regionSelect.get(0).value;
     },
 
     regionChange(region, recurse) {
@@ -96,7 +94,7 @@
       // When triggered by a row drag, the 'region' select needs to be adjusted to
       // the new region.
       region = region.replace(/-/g, '_');
-      this.$regionSelect.val(region);
+      this.$regionSelect.get(0).value = region;
 
       const refreshRows = {};
       refreshRows[this.name] = this.$regionSelect.get(0);
@@ -112,7 +110,6 @@
       // Create a new tabledrag rowObject, that will compute the group's child
       // rows for us.
       const { tableDrag } = element;
-      // eslint-disable-next-line new-cap
       const rowObject = new tableDrag.row(element.row, 'mouse', true);
       // Skip the main row, we handled it above.
       rowObject.group.shift();
