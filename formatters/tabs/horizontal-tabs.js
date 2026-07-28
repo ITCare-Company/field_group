@@ -1,4 +1,6 @@
 /**
+ * @param $
+ * @param Drupal
  * @file
  * Provides horizontal tabs logic.
  */
@@ -59,7 +61,7 @@
               const focusID = $(
                 '> :hidden.horizontal-tabs-active-tab',
                 tabWrapper,
-              ).get(0)?.value;
+              ).val();
               let defaultTab;
               let defaultTabFromLink;
 
@@ -90,7 +92,8 @@
                   // Remove the required mark element from the tab title, if it
                   // exists (e.g. gin theme will have it twice).
                   tabTitle =
-                    $($summaryElement.get(0).cloneNode(true))
+                    $summaryElement
+                      .clone()
                       .find('.required-mark')
                       .remove()
                       .end()

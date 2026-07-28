@@ -84,7 +84,7 @@
 
   Drupal.fieldUIDisplayOverview.group.prototype = {
     getRegion: function getRegion() {
-      return this.$regionSelect.get(0).value;
+      return this.$regionSelect.val();
     },
 
     regionChange(region, recurse) {
@@ -94,7 +94,7 @@
       // When triggered by a row drag, the 'region' select needs to be adjusted to
       // the new region.
       region = region.replace(/-/g, '_');
-      this.$regionSelect.get(0).value = region;
+      this.$regionSelect.val(region);
 
       const refreshRows = {};
       refreshRows[this.name] = this.$regionSelect.get(0);

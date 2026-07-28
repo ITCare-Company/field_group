@@ -42,7 +42,7 @@
 
       // Add required field markers if needed.
       if (
-        $wrapper.get(0).matches('.required-fields') &&
+        $wrapper.is('.required-fields') &&
         ($wrapper.find('[required]').length > 0 ||
           $wrapper.find('.form-required').length > 0)
       ) {
