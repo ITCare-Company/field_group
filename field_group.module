@@ -274,9 +274,9 @@ function field_group_inline_entity_form_entity_form_alter(&$entity_form, FormSta
 }
 
 /**
- * Implements hook_form_media_library_add_form_upload_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
  */
-function field_group_form_media_library_add_form_upload_alter(&$form, FormStateInterface $form_state) {
+function field_group_form_media_library_add_form_alter(&$form, FormStateInterface $form_state) {
 
   // Attach the fieldgroups to the media entity form in Media Library widget.
   $storage = $form_state->getStorage();
