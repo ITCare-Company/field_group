@@ -7,6 +7,7 @@ use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
+use Drupal\field_group\Attribute\FieldGroupFormatter as FieldGroupFormatterAttribute;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -45,6 +46,7 @@ class FieldGroupFormatterPluginManager extends DefaultPluginManager {
       $namespaces,
       $module_handler,
       FieldGroupFormatterInterface::class,
+      FieldGroupFormatterAttribute::class,
       'Drupal\field_group\Annotation\FieldGroupFormatter'
     );
 
