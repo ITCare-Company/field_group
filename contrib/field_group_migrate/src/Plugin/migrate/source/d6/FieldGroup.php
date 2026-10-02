@@ -2,8 +2,8 @@
 
 namespace Drupal\field_group_migrate\Plugin\migrate\source\d6;
 
+use Drupal\field_group_migrate\Plugin\migrate\source\DrupalSqlBase;
 use Drupal\migrate\Row;
-use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 
 /**
  * Drupal 6 field_group source.
@@ -13,9 +13,6 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  *   source_module = "fieldgroup",
  *   destination_module = "field_group"
  * )
- *
- * @phpstan-ignore-next-line DrupalSqlBase is removed in Drupal 12 and has
- * no replacement.
  */
 class FieldGroup extends DrupalSqlBase {
 

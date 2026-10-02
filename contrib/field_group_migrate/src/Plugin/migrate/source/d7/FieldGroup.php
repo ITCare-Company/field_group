@@ -5,9 +5,9 @@ namespace Drupal\field_group_migrate\Plugin\migrate\source\d7;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\field_group\FieldGroupFormatterPluginManager;
+use Drupal\field_group_migrate\Plugin\migrate\source\DrupalSqlBase;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
-use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -18,9 +18,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   source_module = "field_group",
  *   destination_module = "field_group"
  * )
- *
- * @phpstan-ignore-next-line DrupalSqlBase is removed in Drupal 12 and has
- * no replacement.
  */
 class FieldGroup extends DrupalSqlBase {
 
