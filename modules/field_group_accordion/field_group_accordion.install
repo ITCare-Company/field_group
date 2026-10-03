@@ -16,7 +16,7 @@ function field_group_accordion_requirements($phase) {
       'title' => t('Field Group'),
       'value' => t('jQuery UI Accordion is deprecated'),
       'description' => t('This module is deprecated, as the Jquery UI library is EOL.'),
-      'severity' => REQUIREMENT_WARNING,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Warning : REQUIREMENT_WARNING),
     ];
   }
 

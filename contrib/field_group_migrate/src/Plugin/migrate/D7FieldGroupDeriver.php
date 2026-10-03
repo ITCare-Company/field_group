@@ -8,8 +8,8 @@ use Drupal\Core\Database\DatabaseExceptionWrapper;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\migrate\Exception\RequirementsException;
 use Drupal\migrate\Plugin\MigrationDeriverTrait;
+use Drupal\field_group_migrate\Plugin\migrate\source\DrupalSqlBase;
 use Drupal\migrate\Row;
-use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 
 /**
  * Derives Drupal 7 field group migrations per entity type and bundle.
@@ -35,10 +35,6 @@ class D7FieldGroupDeriver extends DeriverBase {
       return $this->derivatives;
     }
 
-    /*
-     * @phpstan-ignore-next-line DrupalSqlBase is removed in Drupal 12 and has
-     * no replacement.
-     */
     assert($field_group_source instanceof DrupalSqlBase);
 
     try {

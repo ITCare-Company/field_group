@@ -222,38 +222,14 @@ function field_group_field_info_max_weight($entity_type, $bundle, $context, $con
   return $weights ? max($weights) : NULL;
 }
 
-/**
- * Implements hook_form_alter().
- */
-function field_group_form_alter(array &$form, FormStateInterface $form_state) {
-
-  $form_object = $form_state->getFormObject();
-  if ($form_object instanceof ContentEntityFormInterface && !$form_object instanceof ConfirmFormInterface) {
-
-    /**
-     * @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display
-     */
-    $storage = $form_state->getStorage();
-    if (!empty($storage['form_display'])) {
-      $form_display = $storage['form_display'];
-      $entity = $form_object->getEntity();
-
-      $context = [
-        'entity_type' => $entity->getEntityTypeId(),
-        'bundle' => $entity->bundle(),
-        'entity' => $entity,
-        'context' => 'form',
-        'display_context' => 'form',
-        'mode' => $form_display->getMode(),
-      ];
-
-      field_group_attach_groups($form, $context);
-      $form['#process'][] = [FormatterHelper::class, 'formProcess'];
-      $form['#pre_render'][] = [FormatterHelper::class, 'formGroupPreRender'];
-    }
-  }
-
-}
+// hook_form_alter() moved to
+// \Drupal\field_group\Hook\FieldGroupFormAlterHooks::formAlter() -- D12
+// (change record 3496788): the "run last" ordering requires the OOP
+// #[Hook(order:...)] pathway; core's procedural-file hook scan never reads
+// an attribute's order parameter (see
+// HookCollectorPass::collectModuleHookImplementations(),
+// core/lib/Drupal/Core/Hook/HookCollectorPass.php:397-405 vs. 424-466), so a
+// bare-function attribute here was silently inert.
 
 /**
  * Implements hook_inline_entity_form_entity_form_alter().
